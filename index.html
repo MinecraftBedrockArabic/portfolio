@@ -1,0 +1,820 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Minatocraft1 | Minecraft Bedrock Add-On Developer</title>
+
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://raw.githubusercontent.com" crossorigin>
+  <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+  <link rel="dns-prefetch" href="https://raw.githubusercontent.com">
+
+  <link rel="preload" href="assets/fonts/Minecraft-Seven.otf" as="font" type="font/otf" crossorigin>
+  <link rel="preload" href="assets/fonts/Minecraft-Ten.otf" as="font" type="font/otf" crossorigin>
+
+  <link rel="preload" href="assets/logo.webp" as="image">
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+    crossorigin="anonymous" referrerpolicy="no-referrer">
+  <link rel="stylesheet" href="css/style.css?v=2.5">
+  <link rel="stylesheet" href="css/ore-ui.css?v=3.4">
+</head>
+
+<body>
+
+  <div class="panorama" aria-hidden="true">
+    <div class="pano-cube">
+      <div class="pano-face pano-front"></div>
+      <div class="pano-face pano-right"></div>
+      <div class="pano-face pano-back"></div>
+      <div class="pano-face pano-left"></div>
+      <div class="pano-face pano-top"></div>
+      <div class="pano-face pano-bottom"></div>
+    </div>
+    <div class="pano-overlay"></div>
+  </div>
+
+  <main id="screen-main" class="screen active">
+
+    <aside class="paperdoll-panel">
+      <div class="nametag">Minatocraft1</div>
+      <div class="paperdoll">
+        <div class="steve">
+          <div class="part head" style="--w:32px; --h:32px; --d:32px;">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+          <div class="part body" style="--w:32px; --h:48px; --d:16px;">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+          <div class="part arm arm-l" style="--w:16px; --h:48px; --d:16px;">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+          <div class="part arm arm-r" style="--w:16px; --h:48px; --d:16px;">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+          <div class="part leg leg-l" style="--w:16px; --h:48px; --d:16px;">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+          <div class="part leg leg-r" style="--w:16px; --h:48px; --d:16px;">
+            <div class="face front"></div>
+            <div class="face back"></div>
+            <div class="face left"></div>
+            <div class="face right"></div>
+            <div class="face top"></div>
+            <div class="face bottom"></div>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <div class="menu-center">
+      <img class="title-img" src="assets/logo.webp" alt="MINECRAFT" draggable="false">
+      <span class="splash" id="splash">...</span>
+
+      <nav class="menu-buttons">
+        <button class="mc-button" id="btn-main-projects" onclick="showScreen('projects')">Projects</button>
+        <button class="mc-button" onclick="toggleSocialDrawer()">Contact</button>
+        <button class="mc-button"
+          onclick="window.open('https://github.com/MinecraftBedrockArabic', '_blank')">GitHub</button>
+        <button class="mc-button discord-gif-btn"
+          onclick="window.open('https://discord.com/users/704346785811923016', '_blank')">
+          <img src="assets/social-icons/discord_animation.webp" alt="Discord" class="discord-gif">
+        </button>
+      </nav>
+    </div>
+
+    <footer class="menu-footer">
+      <span>© Minatocraft1</span>
+      <span>v1.0.0 (Portfolio)</span>
+    </footer>
+  </main>
+
+  <section id="screen-projects" class="screen ore-screen">
+
+    <header class="ore-header-bar">
+      <div class="ore-header-left">
+        <button class="ore-header-back-btn" onclick="showScreen('main')" title="Back to Main Menu" aria-label="Back">
+          <svg class="ore-header-back-icon" viewBox="0 0 512 512" fill="currentColor">
+            <g transform="translate(0 512) scale(.1 -.1)">
+              <path
+                d="m3417 4903c-4-3-7-100-7-215v-208h-210-210v-215-215h-215-215v-210-210l-212-2-213-3-3-212-2-213h-210-210v-215-215h-215-215v-210-210h215 215v-215-215h210 210l2-212 3-213 213-3 212-2v-210-210h215 215v-215-215h210 210l2-212 3-213 213-3 212-2v215 215h-215-215v215 215h-210-210v210 210h-215-215v215 215h-215-215v215 215h-210-210v210 210h210 210v215 215h215 215v215 215h215 215v210 210h210 210v215 215h215 215v215 215h-208c-115 0-212-3-215-7z" />
+            </g>
+          </svg>
+        </button>
+      </div>
+
+      <h1 class="ore-header-title">PROJECTS</h1>
+
+      <div class="ore-header-right">
+        <button class="ore-header-social" onclick="toggleSocialDrawer()" title="Social Links">
+          <svg class="ore-header-social-icon" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z" />
+          </svg>
+          <span>Social</span>
+        </button>
+      </div>
+    </header>
+
+    <nav class="ore-tabs-container" aria-label="Tabs">
+      <div class="ore-tabs-bar">
+        <button class="ore-tab-item active" data-tab="tab-projects" onclick="switchTab('tab-projects')">
+          <img src="assets/ui/UI_Menu_WorldsTab.webp" class="ore-tab-icon-img" alt="Projects">
+          <span>Projects (8)</span>
+        </button>
+
+        <button class="ore-tab-item" data-tab="tab-tools" onclick="switchTab('tab-tools')">
+          <img src="assets/ui/UI_Menu_RealmsTab.webp" class="ore-tab-icon-img" alt="Tools">
+          <span>Tools (4)</span>
+        </button>
+
+        <button class="ore-tab-item" data-tab="tab-others" onclick="switchTab('tab-others')">
+          <img src="assets/ui/UI_Menu_ServerTab.webp" class="ore-tab-icon-img" alt="Others">
+          <span>Others (2)</span>
+        </button>
+      </div>
+    </nav>
+
+    <div class="ore-action-bar-container">
+      <div class="ore-action-bar">
+        <div class="ore-action-left">
+          <button class="button secondary" id="btn-view-toggle" onclick="toggleLayoutView()"
+            title="Toggle Grid / List View">
+            <svg id="view-toggle-grid" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 220 220"
+              style="display:block; fill: #ffffff;">
+              <rect x="10" y="10" width="80" height="80" />
+              <rect x="130" y="10" width="80" height="80" />
+              <rect x="10" y="130" width="80" height="80" />
+              <rect x="130" y="130" width="80" height="80" />
+            </svg>
+            <svg id="view-toggle-list" xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 270 330"
+              style="display:none; fill: #ffffff;">
+              <rect x="10" y="10" width="60" height="60" />
+              <rect x="10" y="140" width="60" height="60" />
+              <rect x="10" y="260" width="60" height="60" />
+
+              <rect x="120" y="10" width="140" height="60" />
+              <rect x="120" y="140" width="140" height="60" />
+              <rect x="120" y="260" width="140" height="60" />
+            </svg>
+          </button>
+        </div>
+
+        <div class="ore-action-right">
+          <button class="button primary" onclick="toggleSocialDrawer()">
+            Create new project
+          </button>
+          <button class="button secondary" onclick="window.open('https://github.com/MinecraftBedrockArabic', '_blank')">
+            <svg style="width:16px;height:16px;vertical-align:middle;margin-right:4px;" viewBox="0 0 24 24"
+              fill="currentColor">
+              <path d="M19 9h-4V3H9v6H5l7 7 7-7zM5 18v2h14v-2H5z" />
+            </svg>
+            Import project
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div class="ore-main-content">
+
+      <div id="tab-projects" class="ore-tab-pane active">
+        <div class="ore-cards-grid" id="projects-container">
+
+          <article class="ore-world-card" onclick="openProjectModal('ultra-cars')" data-title="Ultra Cars"
+            data-tags="Marketplace Add-On Vehicles Racing Cars Drift Nitro Multiplayer">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/UltraCars_Thumbnail.webp" class="ore-card-thumb-img" alt="Ultra Cars"
+                loading="lazy">
+              <span class="ore-card-gamemode-badge">Racing</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">Ultra Cars</h3>
+                <p class="ore-card-date">Marketplace Add-on</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">Vehicles</span><span class="ore-tag-item">Racing</span><span
+                    class="ore-tag-item">Marketplace</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ore-world-card" onclick="openProjectModal('mr-gadget')" data-title="Mr. Gadget"
+            data-tags="World Template Adventure Technology Gadgets">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/mr-gadget-thumbnail.webp" class="ore-card-thumb-img" alt="Mr. Gadget"
+                loading="lazy">
+              <span class="ore-card-gamemode-badge">Adventure</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">Mr. Gadget</h3>
+                <p class="ore-card-date">World Template</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">World Template</span><span class="ore-tag-item">Adventure</span><span
+                    class="ore-tag-item">Technology</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ore-world-card" onclick="openProjectModal('happy-town')" data-title="Happy Town"
+            data-tags="World Template Roleplay Pets Furniture">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/happy-town-thumbnail.webp" class="ore-card-thumb-img" alt="Happy Town"
+                loading="lazy">
+              <span class="ore-card-gamemode-badge">Roleplay</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">Happy Town</h3>
+                <p class="ore-card-date">World Template</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">World Template</span><span class="ore-tag-item">Roleplay</span><span
+                    class="ore-tag-item">Pets</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ore-world-card" onclick="openProjectModal('bit-by-bit')" data-title="Bit By Bit Add-on"
+            data-tags="Building Blocks Colors Creative Micro-Voxel">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/bit-by-bit-thumbnail.webp" class="ore-card-thumb-img" alt="Bit By Bit Add-on"
+                loading="lazy">
+              <span class="ore-card-gamemode-badge">Creative</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">Bit By Bit</h3>
+                <p class="ore-card-date">26.4x+</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">Building</span><span class="ore-tag-item">Micro-Voxel</span><span
+                    class="ore-tag-item">Custom Blocks</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ore-world-card" onclick="openProjectModal('banner-markers')"
+            data-title="Banner Markers Add-on" data-tags="Utility Maps Navigation Banners Script API">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/banner-markers-thumbnail.webp" class="ore-card-thumb-img"
+                alt="Banner Markers Add-on" loading="lazy">
+              <span class="ore-card-gamemode-badge">Utility</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">Banner Markers</h3>
+                <p class="ore-card-date">1.20.70+</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">Maps</span><span class="ore-tag-item">Navigation</span><span
+                    class="ore-tag-item">Script API</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ore-world-card" onclick="openProjectModal('arabic-fix')"
+            data-title="Arabic Language Fix Add-on" data-tags="Utility Language Fix Accessibility Script API">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/arabic-language-fix-thumbnail.webp" class="ore-card-thumb-img"
+                alt="Arabic Language Fix Add-on" loading="lazy">
+              <span class="ore-card-gamemode-badge">Utility</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">Arabic Language Fix</h3>
+                <p class="ore-card-date">1.21.120</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">Utility</span><span class="ore-tag-item">Language</span><span
+                    class="ore-tag-item">Script API</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ore-world-card" onclick="openProjectModal('under-review')" data-title="Under Review"
+            data-tags="Transportation Add-On">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/under-review-thumbnail.webp" class="ore-card-thumb-img" alt="Under Review"
+                loading="lazy">
+              <span class="ore-card-gamemode-badge">Add-On</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">Under Review</h3>
+                <p class="ore-card-date">v26.4x+</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">Transportation</span><span class="ore-tag-item">Add-On</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ore-world-card" onclick="openProjectModal('under-review-world')" data-title="Under Review"
+            data-tags="World Template Tools Sword Armors">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/under-review-thumbnail.webp" class="ore-card-thumb-img" alt="Under Review"
+                loading="lazy">
+              <span class="ore-card-gamemode-badge">World</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">Under Review</h3>
+                <p class="ore-card-date">World Template</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">Tools</span><span class="ore-tag-item">Sword</span><span
+                    class="ore-tag-item">Armors</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div id="tab-tools" class="ore-tab-pane">
+        <div class="ore-cards-grid" id="tools-container">
+
+          <article class="ore-world-card" onclick="openProjectModal('tool-searchlog')" data-title="SearchLog"
+            data-tags="SearchLog Changelog Search Engine Minecraft Bedrock Beyond Bedrock">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/SearchLog_Thumbnail.webp" class="ore-card-thumb-img" alt="SearchLog"
+                loading="lazy">
+              <span class="ore-card-gamemode-badge">Tool</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">SearchLog</h3>
+                <p class="ore-card-date">Web Tool</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">Search</span><span class="ore-tag-item">Changelog</span><span
+                    class="ore-tag-item">Bedrock</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ore-world-card" onclick="openProjectModal('tool-textures-to-glyph')"
+            data-title="Textures to Glyph" data-tags="Textures to Glyph Font Atlas Generator Converter Bedrock UI">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/Texture_To_Glyph.webp" class="ore-card-thumb-img" alt="Textures to Glyph"
+                loading="lazy">
+              <span class="ore-card-gamemode-badge">Tool</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">Textures to Glyph</h3>
+                <p class="ore-card-date">Web Tool</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">Glyphs</span><span class="ore-tag-item">Atlas</span><span
+                    class="ore-tag-item">Converter</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ore-world-card" onclick="openProjectModal('tool-9slice')" data-title="9slice"
+            data-tags="9slice 9-Slice Viewer JSON UI NineSlice Border Scaler Web Tool">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/9Slice_Thumbnail.webp" class="ore-card-thumb-img" alt="9slice" loading="lazy">
+              <span class="ore-card-gamemode-badge">Tool</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">9slice</h3>
+                <p class="ore-card-date">Web Tool</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">9-Slice</span><span class="ore-tag-item">JSON UI</span><span
+                    class="ore-tag-item">Inspector</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ore-world-card" onclick="openProjectModal('tool-chest-ui-editor')"
+            data-title="Chest UI Editor" data-tags="Chest UI Editor JSON UI Visual Drag and Drop Bedrock Web Tool">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/Chest_uI_Editor_Thumbnail.webp" class="ore-card-thumb-img" alt="Chest UI Editor"
+                loading="lazy">
+              <span class="ore-card-gamemode-badge">Tool</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">Chest UI Editor</h3>
+                <p class="ore-card-date">Web Tool</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">Chest UI</span><span class="ore-tag-item">JSON UI</span><span
+                    class="ore-tag-item">Editor</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+      <div id="tab-others" class="ore-tab-pane">
+        <div class="ore-cards-grid" id="others-container">
+
+          <article class="ore-world-card" onclick="openProjectModal('structure-summon-detector')"
+            data-title="Structure Summon Detector"
+            data-tags="Script API Structure Detector Bedrock Entity Summon Pattern Detection JavaScript Snippet">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/Structure_summon_Thumbnail.webp" class="ore-card-thumb-img"
+                alt="Structure Summon Detector" loading="lazy">
+              <span class="ore-card-gamemode-badge">Script API</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">Structure Summon Detector</h3>
+                <p class="ore-card-date">Bedrock Script API</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">Script API</span><span class="ore-tag-item">Structures</span><span
+                    class="ore-tag-item">Bedrock</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+          <article class="ore-world-card" onclick="openProjectModal('bedrock-emoji-viewer')"
+            data-title="Bedrock Emoji Viewer"
+            data-tags="VS Code Extension Bedrock Emoji Viewer Glyphs Unicode Editor BeyondBedrock">
+            <div class="ore-card-thumb-wrap">
+              <img src="assets/addons/Emoji_Viewer_Thumbnail.webp" class="ore-card-thumb-img" alt="Bedrock Emoji Viewer"
+                loading="lazy">
+              <span class="ore-card-gamemode-badge">Extension</span>
+            </div>
+            <div class="ore-card-footer-bar">
+              <div class="ore-card-text-area">
+                <h3 class="ore-card-name">Bedrock Emoji Viewer</h3>
+                <p class="ore-card-date">VS Code Extension</p>
+                <div class="ore-card-tags-list" style="display:none;">
+                  <span class="ore-tag-item">VS Code</span><span class="ore-tag-item">Extension</span><span
+                    class="ore-tag-item">Glyphs</span>
+                </div>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <div id="ore-drawer-overlay" class="ore-drawer-overlay" onclick="toggleSocialDrawer()"></div>
+
+  <aside id="ore-social-drawer" class="ore-social-drawer" aria-label="Social Drawer">
+    <div class="ore-drawer-header">
+      <div class="ore-drawer-search">
+        <span class="ore-drawer-search-icon"><i class="fa-solid fa-magnifying-glass"></i></span>
+        <input type="text" id="social-search-input" class="ore-drawer-search-input" placeholder="Search..."
+          oninput="filterSocials(this.value)">
+      </div>
+      <button class="ore-drawer-close-btn" onclick="toggleSocialDrawer()" title="Close Drawer"><i
+          class="fa-solid fa-xmark"></i></button>
+    </div>
+
+    <div class="ore-drawer-section-title">
+      <span>SOCIAL LINKS</span>
+    </div>
+
+    <div class="ore-drawer-list" id="social-list-container">
+
+      <div class="ore-social-card self-card">
+        <div class="ore-social-avatar-wrap">
+          <img class="ore-social-avatar-img" src="assets/social-icons/16x/minecraft_icon.webp" alt="Minecraft">
+        </div>
+        <div class="ore-social-card-text">
+          <h4 class="ore-social-card-name">Minatocraft1 (Me)</h4>
+          <p class="ore-social-card-status" id="self-status">Playing Minecraft</p>
+        </div>
+      </div>
+
+      <div class="ore-social-card" data-social="discord" data-name="Discord" onclick="handleSocialClick('discord')">
+        <div class="ore-social-avatar-wrap">
+          <img class="ore-social-avatar-img" src="assets/social-icons/16x/discord_icon.webp" alt="Discord">
+        </div>
+        <div class="ore-social-card-text">
+          <h4 class="ore-social-card-name">Discord</h4>
+          <p class="ore-social-card-status">minato4743 &bull; Chat &amp; DMs</p>
+        </div>
+        <button class="ore-social-card-options-btn"
+          onclick="event.stopPropagation(); showSocialTooltip(event, 'discord')" title="Options"><i
+            class="fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+
+      <div class="ore-social-card" data-social="email" data-name="Email" onclick="handleSocialClick('email')">
+        <div class="ore-social-avatar-wrap">
+          <img class="ore-social-avatar-img" src="assets/social-icons/16x/google_icon.webp" alt="Email">
+        </div>
+        <div class="ore-social-card-text">
+          <h4 class="ore-social-card-name">Email</h4>
+          <p class="ore-social-card-status">minatocraft2020@gmail.com</p>
+        </div>
+        <button class="ore-social-card-options-btn" onclick="event.stopPropagation(); showSocialTooltip(event, 'email')"
+          title="Options"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+
+      <div class="ore-social-card" data-social="x" data-name="X" onclick="handleSocialClick('x')">
+        <div class="ore-social-avatar-wrap">
+          <img class="ore-social-avatar-img" src="assets/social-icons/16x/xtwitter_icon.webp" alt="X">
+        </div>
+        <div class="ore-social-card-text">
+          <h4 class="ore-social-card-name">X (Twitter)</h4>
+          <p class="ore-social-card-status">@minato4743 &bull; Updates</p>
+        </div>
+        <button class="ore-social-card-options-btn" onclick="event.stopPropagation(); showSocialTooltip(event, 'x')"
+          title="Options"><i class="fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+
+      <div class="ore-social-card" data-social="youtube" data-name="YouTube" onclick="handleSocialClick('youtube')">
+        <div class="ore-social-avatar-wrap">
+          <img class="ore-social-avatar-img" src="assets/social-icons/16x/youtube_icon.webp" alt="YouTube">
+        </div>
+        <div class="ore-social-card-text">
+          <h4 class="ore-social-card-name">YouTube</h4>
+          <p class="ore-social-card-status">@MinecraftBedrockArabic</p>
+        </div>
+        <button class="ore-social-card-options-btn"
+          onclick="event.stopPropagation(); showSocialTooltip(event, 'youtube')" title="Options"><i
+            class="fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+
+      <div class="ore-social-card" data-social="github" data-name="GitHub" onclick="handleSocialClick('github')">
+        <div class="ore-social-avatar-wrap">
+          <img class="ore-social-avatar-img" src="assets/social-icons/16x/github_icon.webp" alt="GitHub">
+        </div>
+        <div class="ore-social-card-text">
+          <h4 class="ore-social-card-name">GitHub</h4>
+          <p class="ore-social-card-status">MinecraftBedrockArabic &bull; Repos</p>
+        </div>
+        <button class="ore-social-card-options-btn"
+          onclick="event.stopPropagation(); showSocialTooltip(event, 'github')" title="Options"><i
+            class="fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+
+      <div class="ore-social-card" data-social="discord-server" data-name="Discord Server"
+        onclick="handleSocialClick('discord-server')">
+        <div class="ore-social-avatar-wrap">
+          <img class="ore-social-avatar-img" src="assets/social-icons/16x/discord_icon.webp" alt="Discord Server">
+        </div>
+        <div class="ore-social-card-text">
+          <h4 class="ore-social-card-name">Discord Server</h4>
+          <p class="ore-social-card-status">Join Community Server</p>
+        </div>
+        <button class="ore-social-card-options-btn"
+          onclick="event.stopPropagation(); showSocialTooltip(event, 'discord-server')" title="Options"><i
+            class="fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+
+      <div class="ore-social-card" data-social="website" data-name="Website" onclick="handleSocialClick('website')">
+        <div class="ore-social-avatar-wrap">
+          <img class="ore-social-avatar-img" src="assets/social-icons/16x/domain_icon.webp" alt="Website">
+        </div>
+        <div class="ore-social-card-text">
+          <h4 class="ore-social-card-name">Website</h4>
+          <p class="ore-social-card-status">beyondbedrock.org</p>
+        </div>
+        <button class="ore-social-card-options-btn"
+          onclick="event.stopPropagation(); showSocialTooltip(event, 'website')" title="Options"><i
+            class="fa-solid fa-ellipsis-vertical"></i></button>
+      </div>
+
+    </div>
+  </aside>
+
+  <div id="ore-bedrock-tooltip" class="ore-bedrock-tooltip">
+    <div id="ore-tooltip-text" style="margin-bottom:4px; font-weight:bold;">Options</div>
+    <div style="display:flex; flex-direction:column; gap:3px;">
+      <button class="ore-tooltip-action-btn" id="tooltip-btn-open" onclick="triggerTooltipAction('open')"><i
+          class="fa-solid fa-arrow-up-right-from-square" style="margin-right:4px;"></i> Open
+        Link</button>
+      <button class="ore-tooltip-action-btn" id="tooltip-btn-copy" onclick="triggerTooltipAction('copy')"><i
+          class="fa-solid fa-copy" style="margin-right:4px;"></i> Copy to
+        Clipboard</button>
+    </div>
+  </div>
+
+  <div id="ore-project-modal" class="modal" onclick="closeProjectModal(event)">
+    <div class="modal-content" onclick="event.stopPropagation()">
+      <div class="modal-body">
+        <button class="close-modal" onclick="closeProjectModal()" aria-label="Close modal" title="Close">
+          <svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+            style="display:block;">
+            <path d="M1.5 1.5L10.5 10.5M1.5 10.5L10.5 1.5" stroke="currentColor" stroke-width="2.2"
+              stroke-linecap="round" />
+          </svg>
+        </button>
+        <h2 id="modal-title">Project Details</h2>
+
+        <div class="ore-modal-scrollable">
+          <div class="ore-modal-hero">
+            <div class="ore-modal-thumb-wrap">
+              <img id="modal-img" src="assets/banner.webp" class="ore-modal-thumb-img" alt="Preview" loading="lazy">
+            </div>
+            <div class="ore-modal-meta">
+              <h3 id="modal-name"></h3>
+              <div class="ore-modal-badge-row">
+                <span id="modal-type-version" class="ore-modal-type-badge"></span>
+              </div>
+              <div id="modal-tags" class="ore-modal-tags"></div>
+            </div>
+          </div>
+
+          <div class="ore-modal-section ore-modal-desc-section">
+            <div class="ore-modal-desc-panel">
+              <p id="modal-description"></p>
+            </div>
+          </div>
+
+          <div class="ore-modal-section ore-modal-features-section">
+            <div class="ore-modal-section-title-bar">
+              <span class="ore-modal-section-icon"><i class="fa-solid fa-list-check"></i></span>
+              <h4 class="ore-modal-section-title">Features &amp; Specifications</h4>
+            </div>
+            <ul id="modal-features-list" class="ore-modal-features-grid"></ul>
+          </div>
+
+          <div id="modal-contributor-note" class="ore-modal-contributor" style="display:none;">
+            <i class="fa-solid fa-handshake"></i>
+            <span id="modal-contributor-text"></span>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button class="button secondary" onclick="closeProjectModal()">
+            <i class="fa-solid fa-arrow-left" style="font-size: 13px;"></i> Close
+          </button>
+          <button id="modal-btn-preview" class="button primary" onclick="openPanoramaView()">
+            <i class="fa-solid fa-cube" style="font-size: 14px;"></i> Preview
+          </button>
+          <a id="modal-btn-visit" class="button primary" href="https://beyondbedrock.org">
+            <i class="fa-solid fa-arrow-up-right-from-square" style="font-size: 13px;"></i> Visit
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="panorama-modal" class="panorama-modal" onclick="closePanoramaModal(event)">
+    <div class="panorama-content">
+      <button class="panorama-close-btn" onclick="closePanoramaModal()" aria-label="Close preview"
+        title="Close Preview">
+        <svg width="14" height="14" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"
+          style="display:block;">
+          <path d="M1.5 1.5L10.5 10.5M1.5 10.5L10.5 1.5" stroke="currentColor" stroke-width="2.2"
+            stroke-linecap="round" />
+        </svg>
+      </button>
+      <div class="panorama" aria-hidden="true">
+        <div class="pano-cube" id="pano-cube">
+          <div class="pano-face pano-front" id="pano-front"></div>
+          <div class="pano-face pano-right" id="pano-right"></div>
+          <div class="pano-face pano-back" id="pano-back"></div>
+          <div class="pano-face pano-left" id="pano-left"></div>
+          <div class="pano-face pano-top" id="pano-top"></div>
+          <div class="pano-face pano-bottom" id="pano-bottom"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="screen-panorama-loading" class="bedrock-loading-screen" aria-hidden="true" style="display: none;">
+    <div class="bedrock-loading-bg panorama" aria-hidden="true">
+      <div class="pano-cube">
+        <div class="pano-face pano-front"></div>
+        <div class="pano-face pano-right"></div>
+        <div class="pano-face pano-back"></div>
+        <div class="pano-face pano-left"></div>
+        <div class="pano-face pano-top"></div>
+        <div class="pano-face pano-bottom"></div>
+      </div>
+    </div>
+    <div class="bedrock-loading-content">
+      <img class="bedrock-loading-logo" src="assets/logo.webp" alt="MINECRAFT" draggable="false">
+
+      <div class="bedrock-dialog-panel" role="dialog" aria-modal="true" aria-label="Loading Panorama">
+        <div class="bedrock-panel-header">
+          <span class="bedrock-panel-title" id="bedrock-panel-title">Modified World</span>
+        </div>
+        <div class="bedrock-panel-body">
+          <p class="bedrock-loading-tip" id="bedrock-loading-tip">
+            Don't stop with just one! You can load multiple Add-Ons onto a single world at once.
+          </p>
+          <div class="bedrock-progress-container">
+            <div class="bedrock-segmented-bar" id="bedrock-segmented-bar" role="progressbar" aria-valuenow="0"
+              aria-valuemin="0" aria-valuemax="100">
+              <div class="bedrock-seg-track"></div>
+              <div class="bedrock-seg-fill" id="bedrock-seg-fill"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div id="screen-loading" class="loading-overlay" style="display:block;">
+    <div class="loading-container">
+      <img class="loading-logo-img" src="assets/logo.webp" alt="MINECRAFT" draggable="false">
+
+      <div class="pixelSpinner" role="status" aria-label="Loading">
+        <span class="pixel" data-index="0"></span>
+        <span class="pixel" data-index="1"></span>
+        <span class="pixel" data-index="2"></span>
+        <span class="pixel" data-index="3"></span>
+        <span class="pixel" data-index="4"></span>
+        <span class="pixel" data-index="5"></span>
+        <span class="pixel" data-index="6"></span>
+
+        <span class="pixel" data-index="7"></span>
+        <span class="pixel" data-index="8"></span>
+        <span class="pixel" data-index="9"></span>
+        <span class="pixel" data-index="10"></span>
+        <span class="pixel" data-index="11"></span>
+        <span class="pixel" data-index="12"></span>
+        <span class="pixel" data-index="13"></span>
+
+        <span class="pixel" data-index="14"></span>
+        <span class="pixel" data-index="15"></span>
+        <span class="pixel" data-index="16"></span>
+        <span class="pixel" data-index="17"></span>
+        <span class="pixel" data-index="18"></span>
+        <span class="pixel" data-index="19"></span>
+        <span class="pixel" data-index="20"></span>
+
+        <span class="pixel" data-index="21"></span>
+        <span class="pixel" data-index="22"></span>
+        <span class="pixel" data-index="23"></span>
+        <span class="pixel" data-index="24"></span>
+        <span class="pixel" data-index="25"></span>
+        <span class="pixel" data-index="26"></span>
+        <span class="pixel" data-index="27"></span>
+
+        <span class="pixel" data-index="28"></span>
+        <span class="pixel" data-index="29"></span>
+        <span class="pixel" data-index="30"></span>
+        <span class="pixel" data-index="31"></span>
+        <span class="pixel" data-index="32"></span>
+        <span class="pixel" data-index="33"></span>
+        <span class="pixel" data-index="34"></span>
+
+        <span class="pixel" data-index="35"></span>
+        <span class="pixel" data-index="36"></span>
+        <span class="pixel" data-index="37"></span>
+        <span class="pixel" data-index="38"></span>
+        <span class="pixel" data-index="39"></span>
+        <span class="pixel" data-index="40"></span>
+        <span class="pixel" data-index="41"></span>
+
+        <span class="pixel" data-index="42"></span>
+        <span class="pixel" data-index="43"></span>
+        <span class="pixel" data-index="44"></span>
+        <span class="pixel" data-index="45"></span>
+        <span class="pixel" data-index="46"></span>
+        <span class="pixel" data-index="47"></span>
+        <span class="pixel" data-index="48"></span>
+      </div>
+
+      <div class="progressBar" role="progressbar" aria-label="Loading progress" aria-valuemin="0" aria-valuemax="100"
+        aria-valuenow="0">
+        <div class="progressFill" id="loading-bar-fill"></div>
+      </div>
+
+      <p class="progressText" id="loading-percentage">0%</p>
+    </div>
+  </div>
+
+  <script src="js/main.js?v=3.3"></script>
+</body>
+
+</html>
