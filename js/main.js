@@ -718,6 +718,26 @@ const projectsData = {
     panorama: 'assets/panoramas/arabic_fix',
     contributor: null
   },
+  'player-heads': {
+    title: 'Player Heads Generator',
+    type: 'Script API Add-On',
+    version: 'v1.21.90+ Bedrock',
+    image: 'assets/addons/player-heads-thumbnail.webp',
+    tags: ['Utility', 'Creative', 'Tools', 'Customization', 'Script API', 'Web App'],
+    description: 'Easily create and manage custom player head packs for Minecraft Bedrock with 3D preview. Enter a Minecraft username and upload a skin texture to generate a ready-to-use Add-on (Resource and Behavior Pack) that you can install directly into your game or server.',
+    features: [
+      'Manage Add-ons effortlessly through your browser',
+      'Supports all skin dimensions: standard 64x64, HD 128x128, and cropped skins',
+      '3D live preview in-browser to see exactly how each head will look',
+      '3D block items with correct positioning for ground, item frames, and off-hand',
+      'Equippable and placeable heads - wear them or decorate your builds',
+      'Player heads drop on death when killed by another entity in Survival mode',
+      'Custom creative inventory category for easy access in Creative mode'
+    ],
+    website: 'https://beyondbedrock.org/addons/player-heads-generator',
+    panorama: 'assets/panoramas/player_heads',
+    contributor: null
+  },
 
   'under-review': {
     title: 'Under Review',
@@ -951,6 +971,7 @@ const bedrockLoadingTips = [
   "Happy Town brings 500+ themed furniture variants and trainable pets to your world.",
   "Signs, nametags, and in-game chat correctly align Arabic text with the Arabic Fix add-on.",
   "Design custom small chest UIs with drag-and-drop using Chest UI Editor.",
+  "Generate custom player heads with 3D live preview and placeable heads using Player Heads.",
   "'Mr. Gadget' world template was the first work in the Minecraft Marketplace."
 ];
 
